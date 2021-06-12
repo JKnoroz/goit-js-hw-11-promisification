@@ -5,14 +5,22 @@ const users = [
   { name: "Lux", active: false },
 ];
 
+// const toggleUserState = (allUsers, userName) => {
+//   return new Promise((resolve) => {
+//     resolve(
+//       allUsers.map((user) =>
+//         user.name === userName ? { ...user, active: !user.active } : user
+//       )
+//     );
+//   });
+// };
+
 const toggleUserState = (allUsers, userName) => {
-  return new Promise((resolve) => {
-    resolve(
-      allUsers.map((user) =>
-        user.name === userName ? { ...user, active: !user.active } : user
-      )
-    );
-  });
+  return Promise.resolve(
+    allUsers.map((user) =>
+      user.name === userName ? { ...user, active: !user.active } : user
+    )
+  );
 };
 
 const logger = (updatedUsers) => console.table(updatedUsers);
